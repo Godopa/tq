@@ -66,7 +66,9 @@ def get_weather(region):
     humidity = response["now"]["humidity"]
     #风力
     windScale = response["now"]["windScale"]
-    return weather, temp, wind_dir,windSpeed,humidity,windScale,adm1,adm2
+    #气压
+    pressure = response["now"]["pressure"]
+    return weather, temp, wind_dir,windSpeed,humidity,windScale,pressure,adm1,adm2
  
  
 def get_birthday(birthday, year, today):
@@ -203,17 +205,20 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "color": get_color()
             },
             "windSpeed": {
-                "value": windSpeed,
+                "value": windSpeed+"m/s",
                 "color": get_color()
             },
             "humidity": {
-                "value": humidity,
+                "value": humidity+"%",
                 "color": get_color()
             },
             "windScale": {
-                "value": windScale,
+                "value": windScale+"级",
                 "color": get_color()
-            }
+            },
+            "pressure": {
+                "value": pressure+"hPa",
+                "color": get_color()
         }
     }
     for key, value in birthdays.items():
@@ -262,7 +267,7 @@ if __name__ == "__main__":
     users = config["user"]
     # 传入地区获取天气信息
     region = config["region"]
-    weather, temp, wind_dir,windSpeed,humidity,windScale,adm1,adm2 = get_weather(region)
+    weather, temp, wind_dir,windSpeed,humidity,windScale,pressure,adm1,adm2 = get_weather(region)
     note_ch = config["note_ch"]
     note_en = config["note_en"]
     if note_ch == "" and note_en == "":
