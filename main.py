@@ -58,7 +58,13 @@ def get_weather(region):
     temp = response["now"]["temp"] + u"\N{DEGREE SIGN}" + "C"
     # 风向
     wind_dir = response["now"]["windDir"]
-    return weather, temp, wind_dir
+    #风速
+    windSpeed = response["now"]["windSpeed"]
+    #湿度
+    humidity = response["now"]["humidity"]
+    #风力
+    windScale = response["now"]["windScale"]
+    return weather, temp, wind_dir,windSpeed,humidity,windScale
  
  
 def get_birthday(birthday, year, today):
@@ -192,6 +198,18 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             },
             "keChen": {
                 "value": keChen,
+                "color": get_color()
+            },
+            "windSpeed": {
+                "value": windSpeed,
+                "color": get_color()
+            },
+            "humidity": {
+                "value": humidity,
+                "color": get_color()
+            },
+            "windScale": {
+                "value": windScale,
                 "color": get_color()
             }
         }
