@@ -124,19 +124,19 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
     #获取今日课程
-    if week.format == "星期日":
+    if week == 7:
         keChen = "7"
-    elif week.format == "星期一":
+    elif week == 1:
         keChen = "1"
-    elif week.format == "星期二":
+    elif week == 2:
         keChen = "2"
-    elif week.format == "星期三":
+    elif week == 3:
         keChen = "3"
-    elif week.format == "星期四":
+    elif week == 3:
         keChen = "4"
-    elif week.format == "星期五":
+    elif week == 5:
         keChen = "5"
-    elif week.format == "星期六":
+    elif week == 6:
         keChen = "6"
     else:
         keChen = "课程错误"
