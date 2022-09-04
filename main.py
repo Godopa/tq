@@ -191,7 +191,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "color": get_color()
             },
             "keChen": {
-                "value": keChen,
+                "value": week,
                 "color": get_color()
             }
         }
