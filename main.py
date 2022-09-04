@@ -125,19 +125,19 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     week = week_list[today.isoweekday() % 7]
     #获取今日课程
     if week.format == "星期日":
-        keChen = 7
+        keChen = "7"
     elif week.format == "星期一":
-        keChen = 1
+        keChen = "1"
     elif week.format == "星期二":
-        keChen = 2
+        keChen = "2"
     elif week.format == "星期三":
-        keChen = 3
+        keChen = "3"
     elif week.format == "星期四":
-        keChen = 4
+        keChen = "4"
     elif week.format == "星期五":
-        keChen = 5
+        keChen = "5"
     elif week.format == "星期六":
-        keChen = 6
+        keChen = "6"
     else:
         keChen = "课程错误"
     # 获取在一起的日子的日期格式
