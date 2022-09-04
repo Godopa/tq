@@ -123,6 +123,23 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
+    #获取今日课程
+    if week.format == "星期日":
+        keChen = 7
+    elif week.format == "星期一":
+        keChen = 1
+    elif week.format == "星期二":
+        keChen = 2
+    elif week.format == "星期三":
+        keChen = 3
+    elif week.format == "星期四":
+        keChen = 4
+    elif week.format == "星期五":
+        keChen = 5
+    elif week.format == "星期六":
+        keChen = 6
+    else:
+        keChen = "课程错误"
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
     love_month = int(config["love_date"].split("-")[1])
@@ -171,6 +188,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             },
             "note_ch": {
                 "value": note_ch,
+                "color": get_color()
+            }
+            "keChen": {
+                "value": keChen,
                 "color": get_color()
             }
         }
