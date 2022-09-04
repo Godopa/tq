@@ -125,19 +125,19 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     week = week_list[today.isoweekday() % 7]
     #获取今日课程
     if week == "星期日":
-        keChen = "7"
+        keChen = config["zhou7"]
     elif week == "星期一":
-        keChen = "1"
+        keChen = config["zhou1"]
     elif week == "星期二":
-        keChen = "2"
+        keChen = config["zhou2"]
     elif week == "星期三":
-        keChen = "3"
+        keChen = config["zhou3"]
     elif week == "星期四":
-        keChen = "4"
+        keChen = config["zhou4"]
     elif week == "星期五":
-        keChen = "5"
+        keChen = config["zhou5"]
     elif week == "星期六":
-        keChen = "6"
+        keChen = config["zhou6"]
     else:
         keChen = "课程错误"
     # 获取在一起的日子的日期格式
