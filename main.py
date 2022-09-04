@@ -219,6 +219,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             "pressure": {
                 "value": pressure+"hPa",
                 "color": get_color()
+            }
         }
     }
     for key, value in birthdays.items():
