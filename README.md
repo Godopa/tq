@@ -18,7 +18,7 @@ https://www.coolapk.com/feed/38579891?shareKey=NGI3ZGZlZTM4MDBjNjMwMzdlM2M~&shar
 
 今日课程：{{keChen.DATA}}
 
-地区：{{adm1.DATA}}-{{adm2.DATA}}市-{{region.DATA}}区
+地区：{{region.DATA}}
 
 天气：{{weather.DATA}}  气温：{{temp.DATA}}  湿度：{{humidity.DATA}}
 

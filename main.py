@@ -171,7 +171,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "color": get_color()
             },
             "region": {
-                "value": region_name,
+                "value": adm1+"-"+adm2+"市-"+region_name+"区",
                 "color": get_color()
             },
             "weather": {
@@ -212,14 +212,6 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             },
             "windScale": {
                 "value": windScale,
-                "color": get_color()
-            },
-            "adm1": {
-                "value": adm1,
-                "color": get_color()
-            },
-            "adm2": {
-                "value": adm2,
                 "color": get_color()
             }
         }
