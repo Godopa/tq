@@ -124,19 +124,19 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
     #获取今日课程
-    if week == 7:
+    if week == "星期日":
         keChen = "7"
-    elif week == 1:
+    elif week == "星期一":
         keChen = "1"
-    elif week == 2:
+    elif week == "星期二":
         keChen = "2"
-    elif week == 3:
+    elif week == "星期三":
         keChen = "3"
-    elif week == 3:
+    elif week == "星期四":
         keChen = "4"
-    elif week == 5:
+    elif week == "星期五":
         keChen = "5"
-    elif week == 6:
+    elif week == "星期六":
         keChen = "6"
     else:
         keChen = "课程错误"
@@ -191,7 +191,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
                 "color": get_color()
             },
             "keChen": {
-                "value": week,
+                "value": keChen,
                 "color": get_color()
             }
         }
