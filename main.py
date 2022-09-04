@@ -50,6 +50,8 @@ def get_weather(region):
     else:
         # 获取地区的location--id
         location_id = response["location"][0]["id"]
+        adm1 = response["location"]["adm1"]
+        adm2 = response["location"]["adm2"]
     weather_url = "https://devapi.qweather.com/v7/weather/now?location={}&key={}".format(location_id, key)
     response = get(weather_url, headers=headers).json()
     # 天气
@@ -64,7 +66,7 @@ def get_weather(region):
     humidity = response["now"]["humidity"]
     #风力
     windScale = response["now"]["windScale"]
-    return weather, temp, wind_dir,windSpeed,humidity,windScale
+    return weather, temp, wind_dir,windSpeed,humidity,windScale,adm1,adm2
  
  
 def get_birthday(birthday, year, today):
@@ -211,6 +213,14 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             "windScale": {
                 "value": windScale,
                 "color": get_color()
+            },
+            "adm1": {
+                "value": adm1,
+                "color": get_color()
+            },
+            "adm2": {
+                "value": adm2,
+                "color": get_color()
             }
         }
     }
@@ -260,7 +270,7 @@ if __name__ == "__main__":
     users = config["user"]
     # 传入地区获取天气信息
     region = config["region"]
-    weather, temp, wind_dir,windSpeed,humidity,windScale = get_weather(region)
+    weather, temp, wind_dir,windSpeed,humidity,windScale,adm1,adm2 = get_weather(region)
     note_ch = config["note_ch"]
     note_en = config["note_en"]
     if note_ch == "" and note_en == "":
