@@ -15,6 +15,7 @@ https://www.coolapk.com/feed/38579891?shareKey=NGI3ZGZlZTM4MDBjNjMwMzdlM2M~&shar
 模板内容如下：
 
 {{date.DATA}} 
+{{rtoday.DATA}} 
 
 地区：{{region.DATA}}
 

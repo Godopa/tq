@@ -150,6 +150,9 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         keChen = config["zhou6"]
     else:
         keChen = "课程错误"
+    # 获取农历今年对应的月和日
+    rtoday = ZhDate.from_datetime(datetime(year, month, day)).chinese()
+    
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
     love_month = int(config["love_date"].split("-")[1])
@@ -218,6 +221,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             },
             "pressure": {
                 "value": pressure+"hPa",
+                "color": get_color()
+            },
+            "rtoday": {
+                "value": rtoday,
                 "color": get_color()
             }
         }
